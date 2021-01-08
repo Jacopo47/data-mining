@@ -1,0 +1,85 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.JRip -F 3 -N 2.0 -O 2 -S 1
+Relation:     Traffic_Crashes-afterGenericPreprocessing-weka.filters.unsupervised.attribute.Remove-R1-2,7,12,14,20,25
+Instances:    464701
+Attributes:   19
+              TRAFFIC_CONTROL_DEVICE
+              DEVICE_CONDITION
+              WEATHER_CONDITION
+              LIGHTING_CONDITION
+              TRAFFICWAY_TYPE
+              ALIGNMENT
+              ROADWAY_SURFACE_COND
+              ROAD_DEFECT
+              CRASH_TYPE
+              NOT_RIGHT_OF_WAY_I
+              HIT_AND_RUN_I
+              DAMAGE
+              PRIM_CONTRIBUTORY_CAUSE
+              DOORING_I
+              MOST_SEVERE_INJURY
+              INJURIES_TOTAL
+              INJURIES_FATAL
+              CRASH_HOUR
+              WEEKEND
+Test mode:    split 20.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+JRIP rules:
+===========
+
+(INJURIES_TOTAL = 4. 3+) and (CRASH_TYPE = NO INJURY / DRIVE AWAY) => INJURIES_FATAL=Y (565.0/1.0)
+(MOST_SEVERE_INJURY = FATAL) => INJURIES_FATAL=Y (453.0/0.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (HIT_AND_RUN_I = Y) and (CRASH_HOUR = 1. 0-8) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) => INJURIES_FATAL=Y (87.0/16.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (HIT_AND_RUN_I = Y) and (DAMAGE = OVER $1,500) and (TRAFFICWAY_TYPE = ONE-WAY) => INJURIES_FATAL=Y (25.0/7.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (CRASH_HOUR = 1. 0-8) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) and (LIGHTING_CONDITION = DARKNESS, LIGHTED ROAD) => INJURIES_FATAL=Y (54.0/18.0)
+(INJURIES_TOTAL = 4. 3+) and (HIT_AND_RUN_I = Y) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (CRASH_HOUR = 1. 0-8) and (ROADWAY_SURFACE_COND = WET) => INJURIES_FATAL=Y (12.0/0.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (HIT_AND_RUN_I = Y) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) and (CRASH_HOUR = 3. 17-24) => INJURIES_FATAL=Y (51.0/25.0)
+(INJURIES_TOTAL = 4. 3+) and (HIT_AND_RUN_I = Y) and (PRIM_CONTRIBUTORY_CAUSE = NOT APPLICABLE) and (LIGHTING_CONDITION = DARKNESS, LIGHTED ROAD) and (DAMAGE = OVER $1,500) => INJURIES_FATAL=Y (26.0/6.0)
+(INJURIES_TOTAL = 4. 3+) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) and (HIT_AND_RUN_I = Y) and (LIGHTING_CONDITION = UNKNOWN) => INJURIES_FATAL=Y (6.0/0.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (CRASH_HOUR = 1. 0-8) and (LIGHTING_CONDITION = UNKNOWN) => INJURIES_FATAL=Y (5.0/1.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (NOT_RIGHT_OF_WAY_I = Y) and (WEATHER_CONDITION = CLEAR) and (TRAFFICWAY_TYPE = PARKING LOT) => INJURIES_FATAL=Y (4.0/0.0)
+(INJURIES_TOTAL = 4. 3+) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) and (CRASH_HOUR = 1. 0-8) and (PRIM_CONTRIBUTORY_CAUSE = NOT APPLICABLE) => INJURIES_FATAL=Y (16.0/7.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (WEEKEND = Y) and (CRASH_HOUR = 1. 0-8) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) => INJURIES_FATAL=Y (13.0/5.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (HIT_AND_RUN_I = Y) and (TRAFFICWAY_TYPE = ALLEY) => INJURIES_FATAL=Y (4.0/1.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (LIGHTING_CONDITION = DARKNESS, LIGHTED ROAD) and (WEATHER_CONDITION = RAIN) and (WEEKEND = Y) and (TRAFFICWAY_TYPE = NOT DIVIDED) => INJURIES_FATAL=Y (2.0/0.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (TRAFFIC_CONTROL_DEVICE = NO CONTROLS) and (WEEKEND = Y) and (ROADWAY_SURFACE_COND = UNKNOWN) => INJURIES_FATAL=Y (3.0/1.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (HIT_AND_RUN_I = Y) and (WEATHER_CONDITION = SNOW) and (LIGHTING_CONDITION = DARKNESS, LIGHTED ROAD) => INJURIES_FATAL=Y (3.0/1.0)
+(INJURIES_TOTAL = 4. 3+) and (PRIM_CONTRIBUTORY_CAUSE = UNABLE TO DETERMINE) and (TRAFFIC_CONTROL_DEVICE = UNKNOWN) and (TRAFFICWAY_TYPE = DIVIDED - W/MEDIAN (NOT RAISED)) => INJURIES_FATAL=Y (3.0/1.0)
+ => INJURIES_FATAL=N (463369.0/138.0)
+
+Number of Rules : 19
+
+
+Time taken to build model: 85.87 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on test split: 0.51 seconds
+
+=== Summary ===
+
+Correctly Classified Instances      371486               99.926  %
+Incorrectly Classified Instances       275                0.074  %
+Kappa statistic                          0.8732
+Mean absolute error                      0.001 
+Root mean squared error                  0.0242
+Relative absolute error                 16.3583 %
+Root relative squared error             44.6256 %
+Total Number of Instances           371761     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,137    1,000      1,000    1,000      0,873    0,931     1,000     N
+                 0,863    0,000    0,885      0,863    0,874      0,873    0,931     0,854     Y
+Weighted Avg.    0,999    0,137    0,999      0,999    0,999      0,873    0,931     0,999     
+
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+ 370536    124 |      a = N
+    151    950 |      b = Y
+
